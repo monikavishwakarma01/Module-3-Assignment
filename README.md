@@ -1,92 +1,197 @@
-# Welcome to Your Miaoda Project
+# AI Time Tracker
 
-## Project Info
+A full-featured React web application for tracking daily activities and analyzing time usage patterns. Users can log activities across different categories, visualize their time distribution, and gain insights into how they spend their day.
 
-## Project Directory
+## 🌟 Features
 
-```
-├── README.md # Documentation
-├── components.json # Component library configuration
-├── eslint.config.js # ESLint configuration
-├── index.html # Entry file
-├── package.json # Package management
-├── postcss.config.js # PostCSS configuration
-├── public # Static resources directory
-│   ├── favicon.png # Icon
-│   └── images # Image resources
-├── src # Source code directory
-│   ├── App.tsx # Entry file
-│   ├── components # Components directory
-│   ├── context # Context directory
-│   ├── db # Database configuration directory
-│   ├── hooks # Common hooks directory
-│   ├── index.css # Global styles
-│   ├── layout # Layout directory
-│   ├── lib # Utility library directory
-│   ├── main.tsx # Entry file
-│   ├── routes.tsx # Routing configuration
-│   ├── pages # Pages directory
-│   ├── services # Database interaction directory
-│   ├── types # Type definitions directory
-├── tsconfig.app.json # TypeScript frontend configuration file
-├── tsconfig.json # TypeScript configuration file
-├── tsconfig.node.json # TypeScript Node.js configuration file
-└── vite.config.ts # Vite configuration file
-```
+### User Authentication
+- Email and password registration and login
+- Google SSO integration
+- Secure user session management
+- Role-based access control (User/Admin)
 
-## Tech Stack
+### Activity Logging
+- Date picker to select target day for logging activities
+- Activity entry form with:
+  - Title: text input for activity name
+  - Category: dropdown selection (Work, Study, Sleep, Entertainment, Exercise)
+  - Duration: numeric input in minutes
+- Real-time validation: total minutes logged per day cannot exceed 1440 minutes (24 hours)
+- Display remaining available minutes for the selected date
+- Edit and delete functionality for existing activities
+- Card-based layout for each activity entry
 
-Vite, TypeScript, React, Supabase
+### Dashboard & Analytics
+- Date picker for navigating between different days
+- Summary statistics section displaying:
+  - Total hours logged for the selected day
+  - Time breakdown by category
+  - Total number of activities
+  - Day coverage percentage
+- Pie chart visualizing category distribution
+- Bar chart displaying individual activity durations
+- Empty state with friendly prompts when no activities exist
 
-## Development Guidelines
+### Admin Panel
+- User management interface
+- Role assignment (User/Admin)
+- View all registered users
+- First registered user automatically becomes admin
 
-### How to edit code locally?
+## 🛠️ Technology Stack
 
-You can choose [VSCode](https://code.visualstudio.com/Download) or any IDE you prefer. The only requirement is to have Node.js and npm installed.
+- **Frontend Framework**: React 18 with TypeScript
+- **Styling**: Tailwind CSS
+- **UI Components**: shadcn/ui
+- **Charts**: Recharts
+- **Authentication**: Supabase Auth
+- **Database**: Supabase (PostgreSQL)
+- **Date Handling**: date-fns
+- **Build Tool**: Vite
+- **Routing**: React Router v6
 
-### Environment Requirements
-
-```
-# Node.js ≥ 20
-# npm ≥ 10
-Example:
-# node -v   # v20.18.3
-# npm -v    # 10.8.2
-```
-
-### Installing Node.js on Windows
+## 📁 Project Structure
 
 ```
-# Step 1: Visit the Node.js official website: https://nodejs.org/, click download. The website will automatically suggest a suitable version (32-bit or 64-bit) for your system.
-# Step 2: Run the installer: Double-click the downloaded installer to run it.
-# Step 3: Complete the installation: Follow the installation wizard to complete the process.
-# Step 4: Verify installation: Open Command Prompt (cmd) or your IDE terminal, and type `node -v` and `npm -v` to check if Node.js and npm are installed correctly.
+├── src/
+│   ├── components/
+│   │   ├── common/
+│   │   │   └── Header.tsx          # Navigation header
+│   │   └── ui/                     # shadcn/ui components
+│   ├── contexts/
+│   │   └── AuthContext.tsx         # Authentication context
+│   ├── db/
+│   │   ├── supabase.ts            # Supabase client
+│   │   └── api.ts                 # Database API functions
+│   ├── pages/
+│   │   ├── LoginPage.tsx          # Login page
+│   │   ├── SignupPage.tsx         # Signup page
+│   │   ├── ActivityLogPage.tsx    # Activity logging page
+│   │   ├── DashboardPage.tsx      # Analytics dashboard
+│   │   └── AdminPage.tsx          # Admin panel
+│   ├── types/
+│   │   └── types.ts               # TypeScript type definitions
+│   ├── App.tsx                    # Main app component
+│   ├── routes.tsx                 # Route configuration
+│   └── index.css                  # Global styles
+├── supabase/
+│   └── migrations/                # Database migrations
+└── index.html                     # Entry HTML file
 ```
 
-### Installing Node.js on macOS
+## 🚀 Getting Started
 
-```
-# Step 1: Using Homebrew (Recommended method): Open Terminal. Type the command `brew install node` and press Enter. If Homebrew is not installed, you need to install it first by running the following command in Terminal:
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-Alternatively, use the official installer: Visit the Node.js official website. Download the macOS .pkg installer. Open the downloaded .pkg file and follow the prompts to complete the installation.
-# Step 2: Verify installation: Open Command Prompt (cmd) or your IDE terminal, and type `node -v` and `npm -v` to check if Node.js and npm are installed correctly.
-```
+### Prerequisites
 
-### After installation, follow these steps:
+- Node.js ≥ 20
+- npm ≥ 10
 
-```
-# Step 1: Download the code package
-# Step 2: Extract the code package
-# Step 3: Open the code package with your IDE and navigate into the code directory
-# Step 4: In the IDE terminal, run the command to install dependencies: npm i
-# Step 5: In the IDE terminal, run the command to start the development server: npm run dev -- --host 127.0.0.1
-# Step 6: if step 5 failed, try this command to start the development server: npx vite --host 127.0.0.1
+### Installation
+
+1. Clone the repository
+2. Install dependencies:
+```bash
+npm install
 ```
 
-### How to develop backend services?
+3. Set up environment variables:
+The `.env` file should already contain your Supabase credentials:
+```
+VITE_SUPABASE_URL=your_supabase_url
+VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
+```
 
-Configure environment variables and install relevant dependencies.If you need to use a database, please use the official version of Supabase.
+4. Start the development server:
+```bash
+npm run dev -- --host 127.0.0.1
+```
 
-## Learn More
+## 📊 Database Schema
 
-You can also check the help documentation: Download and Building the app（ [https://intl.cloud.baidu.com/en/doc/MIAODA/s/download-and-building-the-app-en](https://intl.cloud.baidu.com/en/doc/MIAODA/s/download-and-building-the-app-en)）to learn more detailed content.
+### Tables
+
+#### profiles
+- `id` (uuid, primary key) - References auth.users
+- `username` (text, unique) - User's username
+- `role` (user_role enum) - User role (user/admin)
+- `created_at` (timestamptz) - Account creation timestamp
+
+#### activities
+- `id` (uuid, primary key) - Activity ID
+- `user_id` (uuid) - References profiles(id)
+- `date` (date) - Activity date
+- `title` (text) - Activity name
+- `category` (text) - Activity category
+- `duration` (integer) - Duration in minutes
+- `created_at` (timestamptz) - Creation timestamp
+- `updated_at` (timestamptz) - Last update timestamp
+
+## 🎨 Design System
+
+- **Primary Color**: Blue (#3B82F6 / hsl(217, 91%, 60%))
+- **Background**: Light gray tones for clean appearance
+- **Category Colors**:
+  - Work: Blue
+  - Study: Green
+  - Sleep: Purple
+  - Entertainment: Pink
+  - Exercise: Orange
+- **Typography**: Sans-serif with clear hierarchy
+- **Layout**: Card-based with rounded corners and subtle shadows
+- **Responsive**: Mobile-first design adapting to all screen sizes
+
+## 🔐 Security Features
+
+- Row Level Security (RLS) enabled on all tables
+- Users can only access their own data
+- Admins have full access to all data
+- Secure authentication with Supabase Auth
+- Protected routes requiring authentication
+
+## 📝 Usage
+
+1. **Sign Up**: Create a new account with username and password, or use Google SSO
+2. **Log Activities**: Select a date and add activities with title, category, and duration
+3. **Track Time**: Monitor your daily time usage with the summary panel
+4. **Analyze**: Click "Analyze Day" to view detailed charts and statistics
+5. **Manage**: Admins can access the Admin panel to manage user roles
+
+## 🎯 Key Features Explained
+
+### 1440 Minutes Validation
+The application enforces a strict 24-hour (1440 minutes) limit per day:
+- Real-time calculation of remaining minutes
+- Visual feedback when approaching or exceeding the limit
+- "Analyze Day" button disabled when limit is exceeded
+- Clear error messages for validation failures
+
+### Category-Based Tracking
+Five predefined categories help organize activities:
+- **Work**: Professional tasks and meetings
+- **Study**: Learning and educational activities
+- **Sleep**: Rest and sleep time
+- **Entertainment**: Leisure and recreation
+- **Exercise**: Physical activities and workouts
+
+### Visual Analytics
+Comprehensive data visualization:
+- **Pie Chart**: Shows percentage distribution across categories
+- **Bar Chart**: Compares individual activity durations
+- **Progress Bars**: Display time breakdown by category
+- **Statistics Cards**: Quick overview of key metrics
+
+## 🤝 Contributing
+
+This is a production-ready application. For modifications:
+1. Follow the existing code structure
+2. Maintain TypeScript type safety
+3. Use shadcn/ui components for consistency
+4. Test all changes thoroughly
+
+## 📄 License
+
+2025 AI Time Tracker
+
+## 🆘 Support
+
+For issues or questions, please refer to the Supabase documentation or React documentation.
