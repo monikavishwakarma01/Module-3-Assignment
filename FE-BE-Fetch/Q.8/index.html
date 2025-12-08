@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todos</title>
+</head>
+<body>
+    <h1>To-Do List</h1>
+    <button onclick="display()">Get data</button>
+    <ul id="tododata"></ul>
+</body>
+<script>
+    function display(){
+        fetch("https://jsonplaceholder.typicode.com/todos",{
+        method:"GET",})
+        .then((res)=>res.json()) 
+        .then((data)=>{
+            let first20=data.slice(0, 20);
+            localStorage.setItem("todos", JSON.stringify(first20));
+            alert("First 20 todos saved to Local Storage!");
+        }) 
+
+    }
+   
+    function render(){
+        let stored= JSON.parse(localStorage.getItem("todos"))
+        let tododata=document.getElementById("tododata")
+        tododata.innerHTML="";
+
+        stored.forEach((element, index)=> {
+            let li=document.createElement("li")
+            li.innerHTML=`
+              ${element.title}
+              ${element.completed}
+              <button onclick="deletbtn(${index})">Delete</button>
+            `;
+
+            li.appendChild(tododata)
+        });
+    }
+     
+      function deletebtn(index) {
+    let stored = JSON.parse(localStorage.getItem("todos"));
+    stored.splice(index, 1); 
+    localStorage.setItem("todos", JSON.stringify(stored));  
+    render(); 
+   }
+
+   
+</script>
+</html>
