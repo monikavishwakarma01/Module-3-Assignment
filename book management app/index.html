@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Book Management — Firebase</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+    <aside class="sidebar">
+        <h2>Manage Books</h2>
+
+        <label for="title">Title</label>
+        <input id="title" type="text" placeholder="Enter book title" />
+
+        <label for="author">Author</label>
+        <input id="author" type="text" placeholder="Enter author name" />
+
+        <label for="price">Price (₹)</label>
+        <input id="price" type="number" placeholder="Enter price" />
+
+        <label for="image">Image URL</label>
+        <input id="image" type="text" placeholder="Cover image URL" />
+
+        <button id="addBtn" class="btn btn-primary">Add Book</button>
+
+        <hr />
+
+        <button id="seedBtn" class="btn btn-ghost">Insert Dummy Books (one-time)</button>
+        <p class="small">Use dummy insert once to add sample books.</p>
+    </aside>
+
+    <main class="main">
+        <header class="main-header">
+            <h1>Book List</h1>
+            <div class="small muted">Realtime synced with Firebase Firestore</div>
+        </header>
+        
+        <div id="books" class="book-list-container">
+            </div>
+
+    </main>
+    
+    <script src="index.js" type="module"></script>
+
+</body>
+</html>
