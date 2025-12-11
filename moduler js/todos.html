@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Todos</title>
+</head>
+<link rel="stylesheet" href="css/style.css" />
+
+<body>
+
+<div id="navbar"></div>
+
+<h2>Your Todos</h2>
+
+<div id="todos-container"></div>
+
+<div id="footer"></div>
+
+<script type="module">
+    import { Navbar } from "./js/navbar.js";
+    import { Footer } from "./js/footer.js";
+    import "./js/todos.js";
+
+    document.getElementById("navbar").innerHTML = Navbar();
+    document.getElementById("footer").innerHTML = Footer();
+</script>
+
+</body>
+</html>
