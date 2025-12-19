@@ -1,0 +1,27 @@
+.red {
+  background-color: red;
+}
+
+.blue {
+  background-color: blue;
+}
+
+.divStyle {
+  width: 200px;
+  height: 100px;
+  line-height: 100px;
+  text-align: center;
+  color: white;
+  margin: 20px auto;
+  border-radius: 8px;
+  font-size: 18px;
+}
+.buttonStyle {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 6px;
+  background-color: #4caf50;
+  color: white;
+  cursor: pointer;
+}
