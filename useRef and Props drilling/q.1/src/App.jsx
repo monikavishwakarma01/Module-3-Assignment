@@ -52,7 +52,7 @@ function App() {
       <video
         ref={videoRef}
         src={videos[currentIndex]}
-        width="450"
+        width="470"
         controls
       />
 
@@ -60,8 +60,8 @@ function App() {
         <button onClick={prevVideo}>⏮ Previous</button>
         <button onClick={playVideo}>▶️ Play</button>
         <button onClick={pauseVideo}>⏸ Pause</button>
-        <button onClick={rewindVideo}>⏪ Rewind</button>
-        <button onClick={forwardVideo}>⏩ Forward</button>
+        <button onClick={rewindVideo}>⏪ Forward </button>
+        <button onClick={forwardVideo}>⏩ Rewind</button>
         <button onClick={nextVideo}>⏭ Next</button>
       </div>
     </div>
