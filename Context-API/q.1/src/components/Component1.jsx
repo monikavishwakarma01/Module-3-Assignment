@@ -9,7 +9,7 @@ function Component1() {
         b :"banana",
         c :"batman",
         d :"cat",
-        e :"elephant",
+        e :"tiger",
         f :"fish"
     }
 
@@ -18,7 +18,6 @@ function Component1() {
         <AppContext.Provider value={ values} >
               <Component2/>
         </AppContext.Provider>
-       0
     </div>
   )
 }

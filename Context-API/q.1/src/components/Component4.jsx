@@ -6,8 +6,8 @@ function Component4() {
     const {c, d} = useContext(AppContext)
   return (
     <div>
-         <h4>this is a from component2 : {c}</h4>
-         <h4>this is b from component2 : {d}</h4>
+         <h4>this is prop c: {c}</h4>
+         <h4>this is prop d: {d}</h4>
 
          <Component5/>
     </div>
