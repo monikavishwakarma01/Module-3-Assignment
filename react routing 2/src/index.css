@@ -1,0 +1,46 @@
+ body{
+  color: black;
+  background-color: antiquewhite;
+  text-decoration: none;
+ }
+.container {
+  width: 80%;
+  margin: auto;
+  padding: 20px;
+}
+
+input {
+  display: block;
+  margin: 10px 0;
+  padding: 8px;
+  width: 100%;
+}
+
+button {
+  padding: 8px 15px;
+  cursor: pointer;
+}
+
+.error {
+  color: red;
+}
+
+.todo-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.todo-card {
+  border: 1px solid #ccc;
+  background-color: rgb(176, 215, 215);
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
